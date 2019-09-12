@@ -1,0 +1,141 @@
+html {
+  font-size: 16px;
+  height: 100%;
+  font-family: sans-serif; }
+
+body {
+  height: inherit; }
+
+.App {
+  box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
+  padding: 2em;
+  position: relative;
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column; }
+  .App .navbar-container {
+    background: url("./nav_menu_bg.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: right top;
+    width: 100%;
+    display: flex;
+    align-items: center; }
+    .App .navbar-container .logo {
+      width: 75%;
+      display: flex;
+      align-items: center;
+      padding: 0 0 0 1em; }
+      .App .navbar-container .logo p:first-child {
+        position: relative;
+        margin-right: 2em;
+        border: 2px solid white;
+        border-radius: 5px;
+        width: 3em;
+        height: 2.5em; }
+        .App .navbar-container .logo p:first-child span {
+          background: url("./7-11-clr-logo.jpg");
+          background-repeat: no-repeat;
+          background-size: cover;
+          position: absolute;
+          background-position: center;
+          top: 5px;
+          bottom: 5px;
+          left: 5px;
+          right: 5px; }
+      .App .navbar-container .logo p:nth-child(2) {
+        height: 2.5em;
+        border: 1px solid #ddd;
+        margin-right: 2em; }
+      .App .navbar-container .logo p:nth-child(3) {
+        color: #ddd;
+        text-transform: uppercase;
+        cursor: pointer; }
+    .App .navbar-container .icons {
+      width: 25%;
+      display: flex;
+      justify-content: space-around; }
+      .App .navbar-container .icons i {
+        font-size: 2.5rem;
+        cursor: pointer; }
+  .App .stats-container {
+    display: flex;
+    justify-content: space-between;
+    background: #ddd;
+    border: 1px solid black; }
+    .App .stats-container .activity-snapshot,
+    .App .stats-container .sales-snapshot {
+      width: 49%; }
+  .App .main-container {
+    position: relative;
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between; }
+    .App .main-container .tip-container {
+      flex-grow: 1; }
+
+.card-container {
+  box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
+  margin-top: 1em;
+  width: 28%;
+  display: flex;
+  flex-direction: column;
+  padding: 1em;
+  text-align: center; }
+  .card-container .navbar, .card-container .horizontal-separator,
+  .card-container .items, .card-container .total, .card-container .details {
+    width: 100%; }
+  .card-container .navbar {
+    display: flex; }
+    .card-container .navbar.flex-column {
+      flex-direction: column; }
+    .card-container .navbar p {
+      margin: 0.2em 0.5em; }
+    .card-container .navbar p:first-child span {
+      margin: 0 auto;
+      display: block;
+      width: 5em;
+      height: 5em;
+      border: 1px solid green;
+      border-radius: 2.5em;
+      background: black; }
+      .card-container .navbar p:first-child span i {
+        font-size: 4.5em;
+        color: white; }
+    .card-container .navbar .creds p:nth-child(1) {
+      font-size: 2rem; }
+    .card-container .navbar .creds p:nth-child(2) {
+      font-size: 1.3rem; }
+  .card-container .horizontal-separator {
+    border: 2px solid #ddd;
+    width: 100%; }
+  .card-container .items .item {
+    display: flex;
+    width: 100%;
+    justify-content: space-between; }
+    .card-container .items .item .desc {
+      margin-bottom: 0.2em; }
+      .card-container .items .item .desc span:first-child {
+        margin-right: 1em; }
+    .card-container .items .item .price {
+      margin-bottom: 0.2em; }
+  .card-container .total {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around; }
+    .card-container .total span {
+      display: block; }
+      .card-container .total span.items {
+        font-size: 1.5em; }
+  .card-container button {
+    height: 2em;
+    background: #646464;
+    color: white;
+    font-size: 1.2rem; }
+
+.ReactModalPortal .card-container {
+  width: 65%;
+  margin: 0 auto; }
