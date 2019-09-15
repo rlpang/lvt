@@ -12,7 +12,7 @@ body {
     box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
     padding: 2em;
     position: relative;
-    width: 80%;
+    width: 90%;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
@@ -84,7 +84,7 @@ body {
         height: 100%;
         display: flex;
         flex-wrap: wrap;
-        justify-content: space-between;
+        justify-content: initial;
         
         .tip-container {
             flex-grow: 1;
@@ -95,6 +95,7 @@ body {
 .card-container {
     box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
     margin-top: 1em;
+    margin-right: 20px;
     width: 28%;
     display: flex;
     flex-direction: column;
@@ -141,6 +142,8 @@ body {
         width: 100%;
     }
     .items {
+        max-height: 370px;
+        overflow-y: auto;
         .item {
             display: flex;
             width: 100%;
@@ -175,11 +178,60 @@ body {
         color: white;
         font-size: 1.2rem;
     }
+    .close {
+        position: absolute;
+        left: 32px;
+        top: 32px;
+        width: 32px;
+        height: 32px;
+        opacity: 0.3;
+      }
+      .close:hover {
+        opacity: 1;
+      }
+      .close:before, .close:after {
+        position: absolute;
+        left: 15px;
+        content: ' ';
+        height: 33px;
+        width: 2px;
+        background-color: #333;
+      }
+      .close:before {
+        transform: rotate(45deg);
+      }
+      .close:after {
+        transform: rotate(-45deg);
+      }
+      
+}
+.tips-container{
+    box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+    background: gray;
+    color: white;
+    margin-top: 1em;
+    width: 28%;
+    display: flex;
+    flex-direction: column;
+    padding: 1em;
+    text-align: center;
+}
+.tips-container .tip-item{
+    display: block;
+    margin: auto;
 }
 
+.manage-container{
+    background: gray;
+
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    height: 100%;
+}
 .ReactModalPortal {
     .card-container {
-        width: 65%;
+        width: 95%;
         margin: 0 auto;
     }
 }

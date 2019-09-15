@@ -1,0 +1,12 @@
+[{
+    "id":"card_1FGlklJAWJAHRwsMOf0lkv14",
+    "object":"card","address_city":null,"address_country":null,"address_line1":null,
+    "address_line1_check":null,"address_line2":null,"address_state":null,"address_zip":"42424","address_zip_check":"pass","brand":"Visa",
+    "country":"US","customer":"cus_Dyltb9arvKtI28","cvc_check":"pass","dynamic_last4":null,"exp_month":"4","exp_year":"2024",
+    "fingerprint":"Y22thE33sJNtZCtc","funding":"credit","last4":"4242","metadata":{},"name":"tests","tokenization_method":null},
+    {"id":"card_1E0x9gJAWJAHRwsMtYCdIs4L","object":"card","address_city":null,"address_country":null,"address_line1":null,
+        "address_line1_check":null,"address_line2":null,"address_state":null,"address_zip":"44444","address_zip_check":"pass",
+        "brand":"MasterCard","country":"US","customer":"cus_Dyltb9arvKtI28","cvc_check":"pass","dynamic_last4":null,"exp_month":"4",
+        "exp_year":"2044","fingerprint":"nmgI6qZmmPNEo7CP","funding":"credit","last4":"4444","metadata":{},"name":"tests",
+        "tokenization_method":null
+}]
