@@ -12,7 +12,8 @@ body {
     box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
     padding: 2em;
     position: relative;
-    width: 90%;
+    width: 89vw;
+    // height: 89vh;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
@@ -72,8 +73,8 @@ body {
     .stats-container {
         display: flex;
         justify-content: space-between;
+        margin-top:5px; 
         background: #ddd;
-        border: 1px solid black;
         .activity-snapshot,
         .sales-snapshot {
             width: 49%;
@@ -93,10 +94,12 @@ body {
 }
 
 .card-container {
+    position: relative;
     box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
     margin-top: 1em;
     margin-right: 20px;
     width: 28%;
+    height: 65vh;
     display: flex;
     flex-direction: column;
     padding: 1em;
@@ -141,8 +144,14 @@ body {
         border: 2px solid #ddd;
         width: 100%;
     }
+    .horizontal-separator-1{
+        border: 2px solid #ddd;
+        width: 90%;
+        position: absolute;
+        bottom: 20%;
+    }
     .items {
-        max-height: 370px;
+        max-height: 250px;
         overflow-y: auto;
         .item {
             display: flex;
@@ -159,17 +168,33 @@ body {
             }
         }
     }
+    .thumb-img{
+        width: 50px;
+    }
     .total {
         width: 100%;
         display: flex;
         align-items: center;
         justify-content: space-around;
+        // padding-bottom: 10px;
+        position: absolute;
+        bottom: 7%;
+        left: 0;
         span {
             display: block;
             &.items {
                 font-size: 1.5em;
             }
         }
+    }
+    .button-pos{
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        position: absolute;
+        bottom: 0;
+        left: 0;
     }
 
     button {
@@ -180,8 +205,8 @@ body {
     }
     .close {
         position: absolute;
-        left: 32px;
-        top: 32px;
+        left: 5px;
+        top: 7px;
         width: 32px;
         height: 32px;
         opacity: 0.3;
@@ -220,7 +245,14 @@ body {
     display: block;
     margin: auto;
 }
-
+.age-restricted{
+    width: 30%;
+    background: gray;
+    color: red;
+    position: absoulte;
+    top: 0;
+    left:0;
+}
 .manage-container{
     background: gray;
 
