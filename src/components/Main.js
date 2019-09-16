@@ -20,6 +20,8 @@ class Main extends Component {
         customerDetails:[],
         modalData: [],
         type : "",
+        modalTotal:0,
+        orderId:"",
     }
 
     ws = new WebSocket(URL)
@@ -36,6 +38,7 @@ class Main extends Component {
             this.setState({
                 customerDetails : message.users,
                 itemDetails : message.data,
+                orderId:message.loyaltyId,
                 type:message.type
             })  
         }
@@ -43,12 +46,14 @@ class Main extends Component {
     }
 
     openModal=(item,index)=> {
-        console.log('on open modal',item)
-        const items = JSON.parse(item) 
+        const items = JSON.parse(item)
+        console.log('in opne',items)
+        let total = items.grandTotal !== undefined ? items.grandTotal : items.total
         this.setState({
             modalIsOpen: true,
             modalData: items.items,
-            modalDetails: this.state.customerDetails[index]
+            modalDetails: this.state.customerDetails[index],
+            modalTotal : total
         })
     }
 
@@ -61,7 +66,6 @@ class Main extends Component {
     // }
 
     render() {
-        // console.log('itemDetails',this.state.itemDetails);
         console.log("modalData",this.state.modalData)
 
         const  customStyles = {
@@ -106,29 +110,17 @@ class Main extends Component {
                             />   
                         )
                     }):<div></div>:<div></div>}
-                     {/* {(this.state.type === "OrderConfirmed")? ((this.state.itemDetails !== undefined) && this.state.customerDetails.length > 0 )? this.state.itemDetails.map((items,index)=>{
+                    {(this.state.type === "OrderConfirmed")? (this.state.customerDetails.length > 0 )? this.state.itemDetails.map((items,index)=>{
                         return (
                             <Card 
                                 customerDetails={this.state.customerDetails[index]}
+                                items={items}
+                                orderId={this.state.orderId}
                                 key={index}
                             />   
                         )
-                    }):<div></div>:<div></div>} */}
-
-                    {/* {((this.state.itemDetails !== undefined) && this.state.customerDetails.length > 0 )? this.state.itemDetails.map((items,index)=>{
-                        return (
-                            <Card 
-                                customerDetails={this.state.customerDetails[index]}
-                                items={items.items}
-                                total={this.state.itemDetails[index].total}
-                                openModal={()=>this.openModal(items)} 
-                                closeModal={this.closeModal} 
-                                key={index}
-                            />   
-                        )
-                    }):<div>Loading...</div>} */}
+                    }):<div></div>:<div></div>}
                     <Tip />
-                    
                 </div>
                 <Modal
                     isOpen={this.state.modalIsOpen}
@@ -140,6 +132,7 @@ class Main extends Component {
                     {(this.state.itemDetails !== undefined)?
                         <Card 
                             customerDetails={this.state.modalDetails}
+                            total={this.state.modalTotal}
                             items={this.state.modalData} 
                             closeModal={this.closeModal} 
                             goToManage={this.goToManage} 
