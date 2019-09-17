@@ -5,7 +5,7 @@ class Stats extends Component {
         return (
             <div className='stats-container'>
                 <div className='activity-snapshot'>
-                    <p>Current Activity</p>
+                    <p style={{paddingLeft:'5px'}}>Current Activity</p>
                 </div>
                 <div className='sales-snapshot'>
                     <p>Sales Activity</p>

@@ -5,7 +5,7 @@ class Tip extends Component {
         return (
             <div className='tips-container'>
                 <div className='tip-item'>
-                    <p>Here is sample tip</p>
+                    <p>Tip of the Day</p>
                 </div> 
             </div>
         )
