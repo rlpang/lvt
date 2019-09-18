@@ -40,10 +40,34 @@ class Card extends Component {
     return total;
   };
 
+  totalAmount = ()=>{
+    return (this.props.items.total / 100).toFixed(2)
+  }
+
+  ageVerification =()=>{
+    let age ;
+    if(this.props.items.items !== undefined){
+      let result = this.props.items.items.filter((item)=>{
+        return item.age_restricted === true
+      })
+
+      if(result.length>0){
+        for(let i = 0; i <result.length; i++){
+          if(result[i].tags.indexOf("Cigarettes") >= 0){
+            age =  (<div className="age-restricted"><h2>18+</h2></div>)
+          }else if(result[i].tags.indexOf("Beer") >=0){
+            age = ( <div className="age-restricted"><h2>21+</h2></div>)
+          }
+        }
+        return age;
+      }
+    }
+  }
+
   render() {
     const { isModal, items } = this.props;
     return (
-      <div className="card-container" style={{ background: "white" }}>
+      <div className="card-container"s>
         {isModal ? (
           <div className="navbar" style={{ paddingLeft: "30px" }}>
             <p>
@@ -56,7 +80,7 @@ class Card extends Component {
               <p>{`${this.props.customerDetails.firstName} ${
                 this.props.customerDetails.lastName === undefined
                   ? ""
-                  : ", " + this.props.customerDetails.lastName
+                  :"," + this.props.customerDetails.lastName
               }`}</p>
               <p>{this.props.customerDetails.phone}</p>
             </div>
@@ -64,27 +88,17 @@ class Card extends Component {
         ) : (
           <div className="navbar flex-column">
             <p>
+            {this.ageVerification()}
               <span>
                 <i className="fa fa-user"></i>
               </span>
             </p>
-            {items.items !== undefined ? (
-              items.items.filter(item => {
-                return item.age_restricted === true;
-              }).length > 0 ? (
-                <span className="age-restricted">21+</span>
-              ) : (
-                <div></div>
-              )
-            ) : (
-              <div></div>
-            )}
 
             <div className="creds">
               <p>{`${this.props.customerDetails.firstName} ${
                 this.props.customerDetails.lastName === undefined
-                  ? ""
-                  : ", " + this.props.customerDetails.lastName
+                  ?""
+                  :"," + this.props.customerDetails.lastName
               }`}</p>
               <p>{this.props.customerDetails.phone}</p>
             </div>
@@ -168,7 +182,7 @@ class Card extends Component {
             {!isModal ? (
               this.props.items.total !== undefined ? (
                 <span className="items">
-                  ${(this.props.items.total / 100).toFixed(2)}
+                  ${this.totalAmount()}
                 </span>
               ) : this.props.items.grandTotal !== undefined ? (
                 <span className="items">

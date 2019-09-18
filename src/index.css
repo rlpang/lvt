@@ -1,16 +1,14 @@
 html {
   font-size: 16px;
-  height: 100%;
+  min-height: 100%;
   font-family: sans-serif; }
 
 body {
   height: inherit; }
 
 .App {
-  box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
-  padding: 2em;
   position: relative;
-  width: 89vw;
+  width: 100%;
   margin: 0 auto;
   display: flex;
   flex-direction: column; }
@@ -68,6 +66,7 @@ body {
     .App .stats-container .sales-snapshot {
       width: 49%; }
   .App .main-container {
+    padding: 4px;
     position: relative;
     height: 100%;
     display: flex;
@@ -80,12 +79,12 @@ body {
   position: relative;
   box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
   margin-top: 1em;
-  margin-right: 20px;
+  margin-right: 10px;
   width: 28%;
-  height: 65vh;
+  height: 69vh;
   display: flex;
   flex-direction: column;
-  padding: 1em;
+  padding: 0.8em;
   text-align: center; }
   .card-container .navbar, .card-container .horizontal-separator,
   .card-container .items, .card-container .total, .card-container .details {
@@ -95,13 +94,16 @@ body {
     .card-container .navbar.flex-column {
       flex-direction: column; }
     .card-container .navbar p {
-      margin: 0.2em 0.5em; }
+      margin: 0.2em 0.5em;
+      position: relative !important; }
     .card-container .navbar p:first-child span {
-      margin: 0 auto;
+      z-index: 3;
+      position: inherit;
+      margin: auto;
       display: block;
       width: 5em;
       height: 5em;
-      border: 1px solid green;
+      border: 1px solid white;
       border-radius: 2.5em;
       background: black; }
       .card-container .navbar p:first-child span i {
@@ -116,7 +118,7 @@ body {
     width: 100%; }
   .card-container .horizontal-separator-1 {
     border: 2px solid #ddd;
-    width: 90%;
+    width: 100%;
     position: absolute;
     bottom: 20%; }
   .card-container .items {
@@ -196,19 +198,103 @@ body {
   margin: auto; }
 
 .age-restricted {
-  width: 30%;
+  display: inline-block;
+  position: absolute !important;
+  width: 50%;
+  height: 82px;
   background: gray;
-  color: red;
-  position: absoulte;
+  color: white;
   top: 0;
   left: 0; }
 
 .manage-container {
-  background: gray;
+  background: white;
   display: flex;
   flex-direction: column;
-  width: 80%;
-  height: 100%; }
+  width: 100%;
+  min-height: 70vh;
+  border-right: 4px solid gray;
+  position: relative; }
+  .manage-container .navbar {
+    background: whitesmoke;
+    padding: 5px;
+    display: flex; }
+    .manage-container .navbar.flex-column {
+      flex-direction: column; }
+    .manage-container .navbar p {
+      margin: 0.2em 0.5em;
+      position: relative !important; }
+    .manage-container .navbar p:first-child span {
+      position: inherit;
+      margin: auto;
+      display: block;
+      width: 5em;
+      height: 5em;
+      border: 1px solid white;
+      border-radius: 2.5em;
+      background: black; }
+      .manage-container .navbar p:first-child span i {
+        padding-left: 14px;
+        font-size: 4.5em;
+        color: white; }
+    .manage-container .navbar .creds p:nth-child(1) {
+      font-size: 2rem; }
+    .manage-container .navbar .creds p:nth-child(2) {
+      font-size: 1.3rem; }
+  .manage-container .horizontal-separator {
+    border: 2px solid #ddd;
+    width: 94%;
+    margin-top: 15px;
+    margin-left: 3%; }
+  .manage-container .horizontal-separator-1 {
+    margin-top: 15px;
+    border: 2px solid #ddd;
+    width: 94%;
+    margin-left: 3%;
+    position: absolute;
+    bottom: 20%; }
+  .manage-container .items {
+    max-height: 250px;
+    overflow-y: auto; }
+    .manage-container .items .item {
+      display: flex;
+      width: 100%;
+      justify-content: space-between; }
+      .manage-container .items .item .desc {
+        margin-bottom: 0.2em; }
+        .manage-container .items .item .desc span:first-child {
+          margin-right: 1em; }
+      .manage-container .items .item .price {
+        margin-bottom: 0.2em; }
+  .manage-container .close {
+    position: absolute;
+    left: 5px;
+    top: 7px;
+    width: 32px;
+    height: 32px;
+    opacity: 0.3; }
+  .manage-container .close:hover {
+    opacity: 1; }
+  .manage-container .close:before, .manage-container .close:after {
+    position: absolute;
+    left: 15px;
+    content: ' ';
+    height: 33px;
+    width: 2px;
+    background-color: #333; }
+  .manage-container .close:before {
+    transform: rotate(45deg); }
+  .manage-container .close:after {
+    transform: rotate(-45deg); }
+
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto;
+  background-color: white;
+  padding: 10px;
+  width: 98%;
+  height: 100%;
+  grid-column-gap: 50px; }
 
 .ReactModalPortal .card-container {
   width: 95%;

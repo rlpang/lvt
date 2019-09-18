@@ -1,6 +1,6 @@
 html {
     font-size: 16px; // base font-size
-    height: 100%;
+    min-height: 100%;
     font-family: sans-serif;
 }
 
@@ -9,10 +9,10 @@ body {
 }
 
 .App {
-    box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
-    padding: 2em;
+    // box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+    // padding: 2em;
     position: relative;
-    width: 89vw;
+    width: 100%;
     // height: 89vh;
     margin: 0 auto;
     display: flex;
@@ -81,6 +81,7 @@ body {
         }
     }
     .main-container {
+        padding: 4px;
         position: relative;
         height: 100%;
         display: flex;
@@ -97,12 +98,12 @@ body {
     position: relative;
     box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
     margin-top: 1em;
-    margin-right: 20px;
+    margin-right: 10px;
     width: 28%;
-    height: 65vh;
+    height: 69vh;
     display: flex;
     flex-direction: column;
-    padding: 1em;
+    padding: 0.8em;
     text-align: center;
     .navbar, .horizontal-separator, 
     .items, .total, .details {
@@ -115,14 +116,17 @@ body {
         }
         p {
             margin: 0.2em 0.5em ;
+            position: relative !important;
         }
         p:first-child {
             span {
-                margin: 0 auto;
+                z-index: 3;
+                position: inherit;
+                margin: auto;
                 display: block;
                 width: 5em;
                 height: 5em;
-                border: 1px solid green;
+                border: 1px solid white;
                 border-radius: 2.5em;
                 background: black;
                 i {
@@ -146,7 +150,7 @@ body {
     }
     .horizontal-separator-1{
         border: 2px solid #ddd;
-        width: 90%;
+        width: 100%;
         position: absolute;
         bottom: 20%;
     }
@@ -246,21 +250,130 @@ body {
     margin: auto;
 }
 .age-restricted{
-    width: 30%;
+    display: inline-block;
+    position: absolute !important;
+    width: 50%;
+    height: 82px;
     background: gray;
-    color: red;
-    position: absoulte;
+    color: white;
     top: 0;
     left:0;
 }
 .manage-container{
-    background: gray;
-
+    background: white;
     display: flex;
     flex-direction: column;
-    width: 80%;
-    height: 100%;
+    width: 100%;
+    min-height: 70vh;
+    border-right: 4px solid gray;
+    position: relative;
+    .navbar {
+        background:whitesmoke;
+        padding: 5px;
+        display: flex;
+        &.flex-column {
+            flex-direction: column;
+        }
+        p {
+            margin: 0.2em 0.5em ;
+            position: relative !important;
+        }
+        p:first-child {
+            span {
+                position: inherit;
+                margin: auto;
+                display: block;
+                width: 5em;
+                height: 5em;
+                border: 1px solid white;
+                border-radius: 2.5em;
+                background: black;
+                i {
+                    padding-left:14px; 
+                    font-size: 4.5em;
+                    color: white;
+                }
+            }
+        }
+        .creds {
+            p:nth-child(1) {
+                font-size: 2rem;
+            }
+            p:nth-child(2) {
+                font-size: 1.3rem;
+            }
+        }
+    }
+    .horizontal-separator {
+        border: 2px solid #ddd;
+        width: 94%;
+        margin-top: 15px;
+        margin-left: 3%;
+    }
+    .horizontal-separator-1{
+        margin-top: 15px;
+        border: 2px solid #ddd;
+        width: 94%;
+        margin-left: 3%;
+        position: absolute;
+        bottom: 20%;
+    }
+    .items {
+        max-height: 250px;
+        overflow-y: auto;
+        .item {
+            display: flex;
+            width: 100%;
+            justify-content: space-between;
+            .desc { 
+                margin-bottom: 0.2em;
+                span:first-child {
+                    margin-right: 1em;
+                }
+            }
+            .price {
+                margin-bottom: 0.2em;
+            }
+        }
+    }
+    .close {
+        position: absolute;
+        left: 5px;
+        top: 7px;
+        width: 32px;
+        height: 32px;
+        opacity: 0.3;
+    }
+    .close:hover {
+        opacity: 1;
+    }
+    .close:before, .close:after {
+        position: absolute;
+        left: 15px;
+        content: ' ';
+        height: 33px;
+        width: 2px;
+        background-color: #333;
+    }
+    .close:before {
+        transform: rotate(45deg);
+    }
+    .close:after {
+        transform: rotate(-45deg);
+    }
 }
+
+
+.grid-container{
+    display: grid;
+    grid-template-columns: auto auto;
+    background-color: white;
+    padding: 10px;
+    width: 98%;
+    height: 100%;
+    grid-column-gap: 50px;
+}
+
 .ReactModalPortal {
     .card-container {
         width: 95%;
