@@ -38,7 +38,7 @@ class Main extends Component {
             this.setState({
                 customerDetails : message.users,
                 itemDetails : message.data,
-                orderId:message.loyaltyId,
+                orderId :message.loyaltyId,
                 type:message.type
             })  
         }
@@ -47,7 +47,6 @@ class Main extends Component {
 
     openModal=(item,index)=> {
         const items = JSON.parse(item)
-        console.log('in opne',items)
         let total = items.grandTotal !== undefined ? items.grandTotal : items.total
         this.setState({
             modalIsOpen: true,
@@ -66,8 +65,6 @@ class Main extends Component {
     // }
 
     render() {
-        console.log("modalData",this.state.modalData)
-
         const  customStyles = {
             content : {
                 top                   : '50%',
@@ -117,6 +114,7 @@ class Main extends Component {
                                 items={items}
                                 orderId={this.state.orderId}
                                 key={index}
+                                loyaltyId = {this.state.orderId}
                             />   
                         )
                     }):<div></div>:<div></div>}
